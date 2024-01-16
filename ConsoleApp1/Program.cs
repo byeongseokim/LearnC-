@@ -162,7 +162,7 @@ namespace ConsoleApp1 //네임 스페이스 선언
             //result2 = false;
             Console.WriteLine("||결과는?" + (result2 || result3));*/
 
-            //비트 연산자
+            /*//비트 연산자
             int a = 1;
             int b = 5;
             int c = 0;
@@ -176,7 +176,41 @@ namespace ConsoleApp1 //네임 스페이스 선언
 
             //^연산
             c = a ^ b;
-            Console.WriteLine("c의 값은?" + c);
+            Console.WriteLine("c의 값은?" + c);*/
+
+
+            //1차원 배열
+            int[] a = { 1, 2, 3, 4 };
+            string[] vars = { "파인애플", "사과", "바나나" };
+            //string ba = "파인애플";
+            //string ba2 = "사과";
+
+            //vars는 0부터 시작하는 인덱스를 가지고 있어서 0, 1, 2로 3번째인 바나나가 출력됨
+            Console.WriteLine(vars[2]);
+            //-1은 바나나 -2는 사과 -3은 파인애플 순으로 나옴
+            Console.WriteLine(vars[vars.Length-2]);
+            //vars는 "파인애플", "사과", "바나나" 세 개의 요소를 가지고 있으므로 vars.Length는 3이 출력됨
+            Console.WriteLine(vars.Length);
+
+            //2차원 배열은 1차원 배열을 여러개를 가질 수 있으며, 3차원 배열은 2차원배열을 여러개 가질 수 있음
+            int[,] abc = { { 1, 2, 3, 5 }, { 4, 5, 6, 7 }, { 4, 5, 6, 7 } };
+            //int[,] abc = { { 1, 2, 3, 5 }, { 4, 5, 6, 7 }, { 4, 5, 6, 7 } }; 여기서 [0, 3]을 했을때 왜 5가 나오는지 -> 0부터 시작하는 인덱스 / [0, 3]일때 0은  { 1, 2, 3, 5 } , 3은 0 1 2 3 이니 4번째인 5가 출력됨
+            Console.WriteLine(abc[0, 3]);
+            //마찬가지로 [1,2]로 했을 경우에는 1은 { { 1, 2, 3, 5 }, { 4, 5, 6, 7 }, { 4, 5, 6, 7 } }; 여기서 0 , 1 , 2 순으로 여기서 2번째인 { 4, 5, 6, 7 }이 나오고, 2는 0 1 2 3 순이니 5가 나오므로 6이 출력됨
+            Console.WriteLine(abc[1, 2]);
+
+            //가변배열
+            int[][] ab = new int[3][];
+
+            //int[,] ab = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 }, { 0, 0, 4 } };
+            ab[0] = new int[4];
+            ab[1] = new int[4];
+            ab[2] = new int[3];
+            ab[2][2] = 4;
+
+            Console.WriteLine("길이는?"+ab.Length);
+
+            //길이가 3인 이유 = 1차원 배열에 있는 vars.Length처럼 ab가 몇 개있는지 알려주는 것 / ab[0],ab[2],ab[2] 총 3개 있어서 3이 나옴 / 또는 처음부터 3개로 지정 해줬기 때문에 int[][] ab = new int[3][];
 
         }
     }
